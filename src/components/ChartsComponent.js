@@ -15,11 +15,10 @@ const Charts = () => {
             const fetchedData=await fetchDailyData();
             setDailyData(fetchedData);
         }
-
-        console.log(dailyData);
-      
+        if(!isFetched){
             fetchAPI();
             setFetched(true);
+        }
         }
     ,[dailyData, isFetched]);
 
