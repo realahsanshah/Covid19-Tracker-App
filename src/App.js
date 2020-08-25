@@ -26,7 +26,15 @@ function App() {
   },[isFetched])
 
   const handleCountryChange=async (country)=>{
-    const fetchedData=await fetchData(country);
+    console.log(country);
+    let fetchedData;
+    if(country==="global"){
+      fetchedData=await fetchData();
+      setCountry('');
+    }
+    else{
+      fetchedData=await fetchData(country);
+    }
     setData(fetchedData);
     setCountry(country);
     console.log(fetchedData);
