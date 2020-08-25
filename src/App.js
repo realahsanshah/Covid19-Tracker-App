@@ -22,7 +22,7 @@ function App() {
       getData();
       setFetched(true);
     }
-  })
+  },[isFetched])
 
   const handleCountryChange=async (country)=>{
     const fetchedData=await fetchData(country);
