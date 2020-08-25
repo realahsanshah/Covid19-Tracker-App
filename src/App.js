@@ -3,8 +3,9 @@ import './App.css';
 import Cards from './components/CardsComponent';
 import Charts from './components/ChartsComponent';
 import CountriesPicker from './components/CountriesComponent';
-import {Container,Grid} from '@material-ui/core';
+
 import {fetchData} from './api';
+import coronaImage from './images/image.png'; 
 
 function App() {
 
@@ -32,23 +33,11 @@ function App() {
   }
 
   return (
-    <div>
-      <Container>
-        <Grid justify="center">
-          <Grid item justify="center">
-            <h1>COVID-19 Tracker</h1>
-          </Grid>
-          <Grid item justify="center">
-          <Cards data={data}/>
-          </Grid>
-          <Grid item justify="center">
-          <CountriesPicker handleCountryChange={handleCountryChange} />
-          </Grid>
-          <Grid item justify="center">
-          <Charts data={data} country={country}/>
-          </Grid>
-      </Grid>
-      </Container>
+    <div className='container'>
+        <img className="image" src={coronaImage} alt="COVID-19" />
+        <Cards data={data} />
+        <CountriesPicker handleCountryChange={handleCountryChange} />
+        <Charts data={data} country={country} /> 
     </div>
   );
 }
